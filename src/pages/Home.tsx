@@ -16,7 +16,7 @@ export function Home() {
       <div className="hero-bg"><Suspense fallback={<div className="hero-field hero-field--fallback" />}><HeroField /></Suspense></div>
       <div className="hero-topline"><span className="eyebrow">INDEPENDENT BUILDER / {identity.location.toUpperCase()}</span><span className="mono">PORTFOLIO / 2026</span></div>
       <div className="hero-copy">
-        <div className="hero-index"><span className="hero-index__line" /> <span className="eyebrow">A VOICE-FIRST BUILD LOG</span></div>
+        <div className="hero-index"><span className="hero-index__line" /> <span className="eyebrow">ENGINEERING × COMMUNITY × GROWTH</span></div>
         <h1>Maine ye poora<br /><em>portfolio</em> bolke<br />banaya hai<span className="hero-period">.</span></h1>
         <div className="hero-bottomline"><p>{identity.alias}: {identity.mission}</p><div className="hero-actions"><Magnetic><Link className="button button--primary" to="/builds">Explore the builds <MoveUpRight size={16} /></Link></Magnetic><Link className="text-link" to="/thread">Read the thread <ArrowUpRight size={15} /></Link></div></div>
       </div>
