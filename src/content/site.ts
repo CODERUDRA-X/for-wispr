@@ -46,7 +46,12 @@ export const links = {
 
 export const metrics = [
   { value: 600, suffix: '+', label: 'Vibe Coding Hack attendees', note: 'Nov 2025' },
-  { value: 2, suffix: '', label: 'Ideathon attendees', note: 'A very visible miss' },
+  {
+  value: 2,
+  suffix: 'nd',
+  label: 'Global Reddit Rank',
+  note: '#2 trending — community recognition'
+},
   { value: 2500, suffix: '+', label: 'Pan-India hackathon participants', note: '110+ colleges' },
   { value: 1700, suffix: '+', label: 'Competitive programming rating', note: 'Peak shared in brief' },
   { value: 6000, suffix: '', label: 'Social followers', note: 'Snapshot supplied by owner' },
