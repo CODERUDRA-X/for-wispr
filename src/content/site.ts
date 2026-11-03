@@ -49,7 +49,7 @@ export const metrics = [
   { value: 2, suffix: '', label: 'Ideathon attendees', note: 'A very visible miss' },
   { value: 2500, suffix: '+', label: 'Pan-India hackathon participants', note: '110+ colleges' },
   { value: 1700, suffix: '+', label: 'Competitive programming rating', note: 'Peak shared in brief' },
-  { value: 2390, suffix: '', label: 'LinkedIn followers', note: 'Snapshot supplied by owner' },
+  { value: 6000, suffix: '', label: 'Social followers', note: 'Snapshot supplied by owner' },
 ] as const;
 
 export const chapters = [
