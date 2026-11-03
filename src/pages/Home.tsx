@@ -18,7 +18,26 @@ export function Home() {
       <div className="hero-copy">
         <div className="hero-index"><span className="hero-index__line" /> <span className="eyebrow">ENGINEERING × COMMUNITY × GROWTH</span></div>
         <h1>Maine ye poora<br /><em>portfolio</em> bolke<br />banaya hai<span className="hero-period">.</span></h1>
-        <div className="hero-bottomline"><p>{identity.alias}: {identity.mission}</p><div className="hero-actions"><Magnetic><Link className="button button--primary" to="/builds">Explore the builds <MoveUpRight size={16} /></Link></Magnetic><Link className="text-link" to="/thread">Read the thread <ArrowUpRight size={15} /></Link></div></div>
+        <div className="hero-bottomline">
+  <p>{identity.alias}: {identity.mission}</p>
+
+  <div className="hero-actions">
+    <Magnetic>
+      <Link className="button button--primary" to="/builds">
+        Explore the builds <MoveUpRight size={16} />
+      </Link>
+    </Magnetic>
+
+    <Link className="text-link" to="/thread">
+      Read the thread <ArrowUpRight size={15} />
+    </Link>
+
+    <Link className="text-link text-link--voice" to="/voice">
+      Experience voice <ArrowUpRight size={15} />
+    </Link>
+  </div>
+</div>
+
       </div>
       <div className="hero-aside"><span className="vertical-label">BUILDING SYSTEMS THAT SURVIVE REAL INPUT</span><div className="hero-aside__wave"><AudioWaveform size={19} /><span className="mono">VOICE / INPUT / OUTPUT</span></div></div>
       <button type="button" className="scroll-cue" onClick={() => document.getElementById('growth-control')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}><span>SCROLL TO EXPLORE THE GROWTH PLAN</span><ArrowDown size={15} /></button>

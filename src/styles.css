@@ -1175,3 +1175,40 @@ body { padding-bottom: 34px; }
     filter: none !important;
   }
 }
+
+/* CRX Voice Lab additions — append to the end of src/styles.css */
+.voice-live-section { padding-top: 12px; padding-bottom: 90px; }
+.voice-live-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 34px; }
+.voice-live-heading > div:first-child > .eyebrow { display: inline-flex; align-items: center; gap: 8px; }
+.voice-live-heading h2 { margin: 15px 0 0; font: 600 clamp(42px, 6.2vw, 76px)/.9 var(--display); letter-spacing: -.075em; }
+.voice-live-heading h2 i { color: var(--accent); font-style: normal; }
+.voice-live-aside { display: grid; gap: 13px; max-width: 300px; }
+.voice-live-aside p { margin: 0; color: var(--ink-dim); font-size: 11px; line-height: 1.75; }
+.voice-live-aside .mono { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 8px; line-height: 1.6; }
+.voice-demo__language { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--line); }
+.voice-demo__language > .eyebrow { margin-right: 7px; color: var(--muted); font-size: 8px; }
+.voice-demo__language button { min-height: 32px; padding: 0 11px; border: 1px solid var(--line); background: transparent; color: var(--muted); font: 8px var(--mono); letter-spacing: .08em; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+.voice-demo__language button:hover, .voice-demo__language button.is-active { border-color: rgba(255,176,32,.55); background: var(--accent-soft); color: var(--accent); }
+.voice-demo__language button:disabled { cursor: not-allowed; opacity: .45; }
+.voice-receipt-intro { max-width: 620px; margin: 18px 0 23px; color: var(--ink-dim); font-size: 11px; line-height: 1.8; }
+.voice-live-section .voice-demo { margin-top: 0; }
+.hero-actions { flex-wrap: wrap; }
+.hero-actions .text-link--voice { color: var(--accent); }
+.hero-actions .text-link--voice:hover { color: var(--ink); }
+.hero-actions .text-link--voice svg:first-child { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .voice-live-section { padding-top: 0; padding-bottom: 72px; }
+  .voice-live-heading { display: block; margin-bottom: 25px; }
+  .voice-live-heading h2 { font-size: clamp(43px, 11vw, 62px); }
+  .voice-live-aside { margin-top: 18px; max-width: 440px; }
+  .voice-demo__language { gap: 7px; }
+  .voice-demo__language > .eyebrow { flex-basis: 100%; margin: 0 0 2px; }
+  .voice-demo__language button { flex: 1; }
+  .voice-receipt-intro { font-size: 10px; }
+  .hero-actions { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-demo__language button { transition: none; }
+}
