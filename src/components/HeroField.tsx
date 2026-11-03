@@ -46,19 +46,27 @@ export default function HeroField({ pulse = 0 }: { pulse?: number }) {
         }
       `,
     });
+    // These uniforms are created explicitly above, so capture their references
+    // once. The non-null assertions satisfy noUncheckedIndexedAccess without
+    // weakening the types for the rest of the component.
+    const uTime = material.uniforms.uTime!;
+    const uResolution = material.uniforms.uResolution!;
+    const uPointer = material.uniforms.uPointer!;
+    const uPulse = material.uniforms.uPulse!;
+
     materialRef.current = material;
     const mesh = new THREE.Mesh(geometry, material); scene.add(mesh);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setClearColor(0x000000, 0);
     node.appendChild(renderer.domElement);
     let frame = 0; let visible = true; let pageVisible = !document.hidden; let start = performance.now();
-    const resize = () => { const rect = node.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); material.uniforms.uResolution.value.set(rect.width, rect.height); };
-    const pointer = (event: PointerEvent) => { const rect = node.getBoundingClientRect(); material.uniforms.uPointer.value.set((event.clientX - rect.left) / rect.width, 1 - (event.clientY - rect.top) / rect.height); };
+    const resize = () => { const rect = node.getBoundingClientRect(); renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height), false); uResolution.value.set(rect.width, rect.height); };
+    const pointer = (event: PointerEvent) => { const rect = node.getBoundingClientRect(); uPointer.value.set((event.clientX - rect.left) / rect.width, 1 - (event.clientY - rect.top) / rect.height); };
     const observer = new IntersectionObserver(([entry]) => { visible = entry?.isIntersecting ?? false; }); observer.observe(node);
     const visibility = () => { pageVisible = !document.hidden; };
     node.addEventListener('pointermove', pointer); document.addEventListener('visibilitychange', visibility);
     const ro = new ResizeObserver(resize); ro.observe(node); resize();
-    const render = (now: number) => { if (visible && pageVisible) { material.uniforms.uTime.value = (now - start) / 1000; material.uniforms.uPulse.value = pulseStartRef.current ? Math.max(0, 1 - (now - pulseStartRef.current) / 750) : 0; renderer.render(scene, camera); } frame = requestAnimationFrame(render); };
+    const render = (now: number) => { if (visible && pageVisible) { uTime.value = (now - start) / 1000; uPulse.value = pulseStartRef.current ? Math.max(0, 1 - (now - pulseStartRef.current) / 750) : 0; renderer.render(scene, camera); } frame = requestAnimationFrame(render); };
     frame = requestAnimationFrame(render);
     return () => { cancelAnimationFrame(frame); observer.disconnect(); ro.disconnect(); node.removeEventListener('pointermove', pointer); document.removeEventListener('visibilitychange', visibility); geometry.dispose(); material.dispose(); materialRef.current = null; renderer.dispose(); renderer.domElement.remove(); };
   }, []);
