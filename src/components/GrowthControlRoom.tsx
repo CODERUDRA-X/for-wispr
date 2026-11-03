@@ -57,7 +57,7 @@ export function GrowthControlRoom() {
       <div className="growth-console__detail" id="growth-console-detail" aria-live="polite">
         <div className="growth-console__topline">
           <span className="mono">{selectedCampaign.tag}</span>
-          <span className="growth-proposal-status"><i /> PROPOSAL / NOT EXECUTED</span>
+          <span className="growth-proposal-status"><i /> PROPOSED PILOT</span>
         </div>
 
         <div className="growth-console__intro">
