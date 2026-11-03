@@ -20,7 +20,7 @@ export function GrowthControlRoom() {
       <aside className="growth-console__rail">
         <div className="growth-console__rail-head">
           <span className="eyebrow">SELECT A GROWTH LEVER</span>
-          <p>Three proposals.<br />One at a time.</p>
+          <p>Three growth loops.<br />One at a time.</p>
         </div>
 
         <div className="growth-console__choices" role="group" aria-label="Choose a proposed growth experiment">
