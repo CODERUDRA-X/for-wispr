@@ -75,8 +75,8 @@ export function GrowthControlRoom() {
             <span className="eyebrow"><Users size={12} /> DISTRIBUTION CHANNEL</span>
             <p>{selectedCampaign.channel}</p>
           </article>
-          <article className="growth-spec growth-spec--metric">
-            <span className="eyebrow"><Target size={12} /> SUCCESS SIGNAL / PROPOSED</span>
+          <article className="growth-spec growth-spec--metric">SUCCESS METRIC / TO VALIDATE
+            <span className="eyebrow"><Target size={12} /> </span>
             <p>{selectedCampaign.metric}</p>
           </article>
         </div>
