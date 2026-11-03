@@ -98,8 +98,12 @@ export function VoiceDemo({ onPulse }: { onPulse?: () => void }) {
       instance.onresult = (event) => {
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index];
-          const text = result?.[0]?.transcript?.trim() ?? '';
-          if (text) chunks.current[index] = { text, isFinal: result.isFinal };
+          if (!result) continue;
+
+          const text = result[0]?.transcript?.trim() ?? '';
+          if (text) {
+            chunks.current[index] = { text, isFinal: result.isFinal };
+          }
         }
 
         const finalText = chunks.current.filter(chunk => chunk?.isFinal).map(chunk => chunk.text).join(' ');
