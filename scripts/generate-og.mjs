@@ -1,0 +1,15 @@
+import sharp from 'sharp';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+
+const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<defs><radialGradient id="g"><stop stop-color="#ffb020" stop-opacity=".26"/><stop offset="1" stop-color="#0a0b0d" stop-opacity="0"/></radialGradient><pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity=".055"/></pattern></defs>
+<rect width="1200" height="630" fill="#0a0b0d"/><rect width="1200" height="630" fill="url(#grid)"/><circle cx="980" cy="170" r="420" fill="url(#g)"/>
+<path d="M820 430 C900 310 940 500 1030 350 S1140 300 1200 220" fill="none" stroke="#ffb020" stroke-opacity=".42" stroke-width="2"/><path d="M800 475 C930 380 960 540 1080 420 S1150 385 1200 330" fill="none" stroke="#ffb020" stroke-opacity=".2" stroke-width="1"/>
+<text x="78" y="105" fill="#ffb020" font-family="Arial,sans-serif" font-size="22" letter-spacing="7">CODERUDRA-X / CRX</text>
+<text x="72" y="300" fill="#f5f2eb" font-family="Arial,sans-serif" font-size="104" font-weight="700" letter-spacing="-5">BUILD. BREAK.</text><text x="72" y="414" fill="#f5f2eb" font-family="Arial,sans-serif" font-size="104" font-weight="700" letter-spacing="-5">REBUILD.</text>
+<text x="80" y="500" fill="#a7a39b" font-family="Arial,sans-serif" font-size="25">AI systems. Human systems. Honest experiments.</text><text x="80" y="570" fill="#77736d" font-family="Arial,sans-serif" font-size="17" letter-spacing="4">SHREYANSH SRIVASTAVA  ·  PRAYAGRAJ, INDIA</text>
+<rect x="1040" y="70" width="88" height="34" rx="17" fill="#ffb020"/><text x="1084" y="93" fill="#0a0b0d" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">CRX</text></svg>`;
+await mkdir(new URL('../public/', import.meta.url), { recursive: true });
+await writeFile(new URL('../public/og-image.svg', import.meta.url), svg);
+await sharp(Buffer.from(svg)).png().toFile(fileURLToPath(new URL('../public/og-image.png', import.meta.url)));
